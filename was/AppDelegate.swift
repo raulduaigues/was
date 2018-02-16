@@ -16,6 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        window = UIWindow()                                                 //instanciate window
+        window?.makeKeyAndVisible()                                         //make it visible
+        
+        let gameViewController = GameViewController()                       //
+        window?.rootViewController = gameViewController                     //create controller. have some kind of view controller.
+        
+        UIApplication.shared.isIdleTimerDisabled = true                     //display dims down after some secs. this will not happen
+        
         return true
     }
 
