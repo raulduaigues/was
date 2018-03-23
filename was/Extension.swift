@@ -14,7 +14,8 @@ enum UIUserInterfaceIdiom: Int {
     case pad
 }
 
-struct ScreenSize {
+
+struct ScreenSize {                                                     //instanciate lengths and sizes of screen
     static let width = UIScreen.main.bounds.size.width
     static let heigth = UIScreen.main.bounds.size.width
     static let maxLength = max(ScreenSize.width, ScreenSize.heigth)
@@ -22,10 +23,10 @@ struct ScreenSize {
 }
 
 struct DeviceType {
-    static let isiPhone7 = UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 667.0
+    static let isiPhone7 = UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 667.0 //size iphone7
 }
 
-extension UIColor {
+extension UIColor {                                                     //create a easy color selection function
     convenience init(red: Int, green: Int, blue: Int) {
         let newRed = CGFloat(red)/255
         let newGreen = CGFloat(green)/255
@@ -34,6 +35,20 @@ extension UIColor {
         self.init(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
         
     }
+}
+
+public extension Float {                                                //take a random number between a min and max
+    public static func random() -> Float {
+        return Float(Float(arc4random()) / 0xFFFFFFFF)
+    }
+    
+    public static func random(_ min:Float, max: Float) -> Float {
+        return Float.random() * (max - min) + min
+    }
+}
+
+extension Int {                                                         //convert degrees to radiants
+    var DegreesToRadians: Double { return Double(self) * .pi/180}
 }
 
 
